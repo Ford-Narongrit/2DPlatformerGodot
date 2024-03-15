@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq36mnkmle63b"]
+
+[ext_resource type="Script" path="res://scenes/component/dash_component.gd" id="1_u3sqw"]
+
+[node name="DashComponent" type="Node"]
+script = ExtResource("1_u3sqw")
+
+[node name="DashingDurationTime" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashingRefillTime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
