@@ -344,8 +344,6 @@ unique_name_in_owner = true
 
 [node name="DashComponent" parent="." instance=ExtResource("2_uknhq")]
 unique_name_in_owner = true
-max_dash_count = 2
-dash_refill_duration = 3.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_kg1wq")]
 unique_name_in_owner = true

@@ -18,6 +18,8 @@ func update(_delta: float):
 		state_transition.emit(self, "Dash")
 	elif Input.is_action_just_pressed("jump"):
 		jump_component.jump(player)
+	elif Input.is_action_just_released("jump"):
+		jump_component.jump_cut(player)
 	elif not is_zero_approx(player.get_input_direction()):
 		velocity_component.move(player, player.get_input_direction())
 	else:
