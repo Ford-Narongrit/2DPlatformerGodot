@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://djb3ba23eghdp"]
+[gd_scene load_steps=46 format=3 uid="uid://djb3ba23eghdp"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_74vis"]
 [ext_resource type="PackedScene" uid="uid://kqycdjy12xgj" path="res://scenes/component/velocity_component.tscn" id="1_kg1wq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cacpvmpkiuiuy" path="res://scenes/game_object/player/sprite/Run (78x58).png" id="6_tg108"]
 [ext_resource type="Texture2D" uid="uid://qwjd8ljjyvdx" path="res://scenes/game_object/player/sprite/Fall (78x58).png" id="8_k1jh3"]
 [ext_resource type="Script" path="res://scenes/game_object/player/state/player_dash_state.gd" id="8_od2rb"]
+[ext_resource type="Script" path="res://scenes/game_object/player/state/player_wall_state.gd" id="11_kemss"]
 [ext_resource type="Texture2D" uid="uid://b7k5mkqmyrj80" path="res://scenes/game_object/player/sprite/Ground (78x58).png" id="11_sipt3"]
 
 [sub_resource type="Animation" id="Animation_x333u"]
@@ -337,6 +338,7 @@ height = 22.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
+safe_margin = 0.2
 script = ExtResource("1_74vis")
 
 [node name="JumpComponent" parent="." instance=ExtResource("2_jqpx4")]
@@ -367,6 +369,9 @@ script = ExtResource("5_f3k17")
 
 [node name="Dash" type="Node" parent="FiniteStateMachineComponent"]
 script = ExtResource("8_od2rb")
+
+[node name="Wall" type="Node" parent="FiniteStateMachineComponent"]
+script = ExtResource("11_kemss")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

@@ -14,6 +14,21 @@ func enter():
 	animation_player.play("jump")
 
 func update(_delta: float):
+	# check state
+	if player.is_on_floor():
+		animation_player.play("landing")
+		state_transition.emit(self, "Idle")
+		return
+	elif player.is_on_wall():
+		state_transition.emit(self, "Wall")
+		return
+	
+	# update
+	gravity_component.apply_default_gravity(player)
+	if player.velocity.y > 0:
+		animation_player.play("fall")
+	
+	# get input
 	if Input.is_action_just_pressed("dash"):
 		state_transition.emit(self, "Dash")
 	elif Input.is_action_just_pressed("jump"):
@@ -25,12 +40,4 @@ func update(_delta: float):
 	else:
 		velocity_component.stop(player)
 	
-	gravity_component.apply_gravity(player)
-	if player.velocity.y > 0:
-		animation_player.play("fall")
-	
-	if player.is_on_floor():
-		animation_player.play("landing")
-		state_transition.emit(self, "Idle")
-		
 	player.move_and_slide()

@@ -9,7 +9,10 @@ func get_input_direction():
 	
 	var move_sign = sign(direction)
 	if move_sign != 0:
-		face_direction = move_sign
-		visual.scale = Vector2(move_sign, 1)
+		set_face_direction(move_sign)
 	
 	return direction
+
+func set_face_direction(direction_x: float):
+	face_direction = direction_x
+	visual.scale = Vector2(direction_x, 1)

@@ -26,6 +26,7 @@ func start_dash(character_body: CharacterBody2D, direction_x: float):
 		dashing_duration_time.start()
 		dash_character_body = character_body
 		face_direction = direction_x
+		character_body.set_face_direction(direction_x);
 
 func dashing():
 	var movement_x = face_direction * dash_speed
